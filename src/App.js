@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import Recipe from "./Recipe";
+import SearchButton from './components/searchButton'
 
 const App = () => {
   const APP_ID = "acc32f46";
@@ -42,9 +43,7 @@ const App = () => {
           value={search}
           onChange={updateSearch}
         />
-        <button className="search-button" type="submit">
-          Search
-        </button>
+        <SearchButton/>
       </form>
       <div className="recipes">
       {recipes.map((recipe) => (
