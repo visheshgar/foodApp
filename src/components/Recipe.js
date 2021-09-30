@@ -1,5 +1,5 @@
 import React from "react";
-import style from  "./recipe.module.css"
+import style from  "/Users/vishesh.garg01/Desktop/temo/my-app/src/recipe.module.css"
 const Recipe=({title,calories,image, ingredients})=>{
     return(
         <div className={style.recipe}>
