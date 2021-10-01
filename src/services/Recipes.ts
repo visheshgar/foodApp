@@ -1,4 +1,4 @@
-async function getRecipes (query ) {
+async function getRecipes (query: string ) {
   const APP_ID = "acc32f46";
   const APP_KEY = "0bf1ae06ab6592fc7079c8461e978c5b";
 
@@ -7,7 +7,8 @@ async function getRecipes (query ) {
   );
   const data = await response.json();
   console.log(data.hits);
-  return data;
+  const finaldata = await data.hits;
+  return finaldata;
 }
 
 export default getRecipes;

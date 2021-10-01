@@ -14,7 +14,7 @@ const App = () => {
       if (data === undefined) {
         setRecipes([]);
       } else {
-        setRecipes(data.hits);
+        setRecipes(data);
       }
     }
     fetchData();

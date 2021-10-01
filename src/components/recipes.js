@@ -1,19 +1,30 @@
 import React from "react";
-import Recipe from "./Recipe"
-const Recipes = ({listOfRecipes}) => {
-    return(
-        <div className="recipes">
-        {listOfRecipes.map((recipe) => (
-          <Recipe
-            key={recipe.recipe.label}
-            ingredients={recipe.recipe.ingredients}
-            title={recipe.recipe.label}
-            calories={recipe.recipe.calories}
-            image={recipe.recipe.image}
-          />
-        ))}
-      </div>  
-    )
-}
+import Recipe from "./Recipe";
+import IRecipe from "./Recipe";
+
+const getRequiredRecipe = (recipe) => {
+  // console.log(recipe);
+  const currentRecipe = {
+    title: recipe.label,
+    calories: recipe.calories,
+    image: recipe.image,
+  };
+  // console.log(currentRecipe);
+  return currentRecipe;
+};
+
+const Recipes = ({ listOfRecipes }) => {
+  const finalListOfRecipes = listOfRecipes.map((recipe) =>
+    getRequiredRecipe(recipe.recipe)
+  );
+console.log(finalListOfRecipes)
+  return (
+    <div className="recipes">
+      {finalListOfRecipes.map((recipe) => (
+        <Recipe key={recipe.title} {...recipe} />
+      ))}
+    </div>
+  );
+};
 
 export default Recipes;
