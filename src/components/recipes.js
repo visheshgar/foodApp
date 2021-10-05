@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Recipe from "./Recipe";
 import IRecipe from "./Recipe";
 
@@ -17,11 +18,13 @@ const Recipes = ({ listOfRecipes }) => {
   const finalListOfRecipes = listOfRecipes.map((recipe) =>
     getRequiredRecipe(recipe.recipe)
   );
-console.log(finalListOfRecipes)
+  console.log(finalListOfRecipes);
   return (
     <div className="recipes">
       {finalListOfRecipes.map((recipe) => (
-        <Recipe key={recipe.title} {...recipe} />
+        <Link to={`/recipes/${recipe.title}`}>
+          <Recipe key={recipe.title} {...recipe} />
+        </Link>
       ))}
     </div>
   );
